@@ -1,0 +1,7 @@
+.head-info{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #3b3b3b;
+}
