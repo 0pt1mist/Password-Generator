@@ -1,4 +1,4 @@
-import './head-info.css'
+import '../styles/head-info.css'
 
 export function HeadInfo() {
     return(

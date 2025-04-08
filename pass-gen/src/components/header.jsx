@@ -1,4 +1,4 @@
-import './header.css';
+import '../styles/header.css';
 
 export function Header() {
     return(
@@ -13,4 +13,4 @@ export function Header() {
         </div>
     </header>
     )
-}
+};

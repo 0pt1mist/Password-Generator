@@ -14,6 +14,12 @@ body{
     color: #e9e9e9;
 }
 
+.App-Header-Name h1{
+    text-align: center;
+    width: 20ch;
+    text-wrap: nowrap;
+}
+
 .App-Header-Img{
     display: flex;
     align-items: center;
@@ -30,3 +36,9 @@ body{
     margin: 0 0 8px 0;
 }
 
+
+@media(max-width:760px){
+    .App-Header-Img{
+        display: none;
+    }
+}
