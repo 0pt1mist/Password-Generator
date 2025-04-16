@@ -5,7 +5,7 @@ import { PasswordList } from './passwordList.jsx';
 
 export function MainWin() {
 
-    const [allGeneratedPass, setAllGeneratedPass] = useState('')
+    const [allGeneratedPass, setAllGeneratedPass] = useState([])
 
     return(
         <main className="Main">

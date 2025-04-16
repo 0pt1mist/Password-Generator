@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 
 import '../styles/main-app.css';
 
 export function PasswordList({ allGeneratedPass }) {
-
-    useEffect(() => {
-        console.log(allGeneratedPass)
-    }, [allGeneratedPass])
 
     return (
         <div className='SaveWin'>

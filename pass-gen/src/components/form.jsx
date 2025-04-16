@@ -34,7 +34,11 @@ export function GenPassFormF({ allGeneratedPass, setAllGeneratedPass }) {
                 
                 <div className="PassLen">
                     <label htmlFor="">Длинна пароля</label>
-                    <input type="text" {...register('passLength', { required: true })} required />
+                    <input type="text" {...register('passLength', { required: true })} required onChange={(e) => {
+                        if (!Number.isInteger(Number(e.target.value)) || e.target.value > 20) {
+                            setValue('passLength', '')
+                        } 
+                    }} />
                     <p>до 20 символов!</p>
                 </div>
 
