@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import '../style/passwordList.css';
+import '../styles/main-app.css';
 
 export function PasswordList({ allGeneratedPass }) {
 
@@ -9,10 +9,10 @@ export function PasswordList({ allGeneratedPass }) {
     }, [allGeneratedPass])
 
     return (
-        <div className='aboba'>
+        <div className='SaveWin'>
             {/* <p style={{color: 'white'}}>{allGeneratedPass}</p> */}
-            <h2 style={{marginTop: 0, color: 'white'}}>Сгенерированные пароли</h2>
-            <ul style={{color: 'white'}}>
+            <label className='SaveWinTitle' >Избранные пароли</label>
+            <ul>
                 {(() => {
                     const list = [];
                     for (var i = 0; i < allGeneratedPass.length; i++) {
@@ -22,15 +22,19 @@ export function PasswordList({ allGeneratedPass }) {
                     return list;
                 })()}
             </ul>
-            <button onClick={() => {
+            <button className='DownloadBtn'  onClick={() => {
                 const text = allGeneratedPass.join('\n');
                 const blob = new Blob([text], { type: 'text/plain' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = 'passwords.jsx';
+                link.download = 'passwords.txt';
                 link.click();
                 URL.revokeObjectURL(link.href);
             }}>Сохранить</button>
+            {/* <button onClick={() => {
+                setAllGeneratedPass([])
+                }}>Очистить
+            </button> */}
         </div>
     )
 }

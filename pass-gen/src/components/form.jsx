@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { genPass } from "../helper/genPass.js";
 
-import '../style/form.css'
+import '../styles/main-app.css'
 
 export function GenPassFormF({ allGeneratedPass, setAllGeneratedPass }) {
     const [newPassword, setNewPassword] = useState('')
@@ -17,37 +17,41 @@ export function GenPassFormF({ allGeneratedPass, setAllGeneratedPass }) {
     })
 
     return (
-        <div>
-            <form onSubmit={handleSubmit((values) => { setValue('newPassInput', genPass(values)); })}>
+            <form className="MainWin" onSubmit={handleSubmit((values) => { setValue('newPassInput', genPass(values)); })}>
+                <label className="MainWinTitle" htmlFor="">Готовый пароль</label>
+                <div className="MainInput">
+                    <input type="text" placeholder="Ваш пароль" {...register('newPassInput')} />
+                    <div className="MainBtn">
+                        <button className="GenBtn" type="submit">Создать</button>
 
-                <label htmlFor="">Готовый пароль</label>
-                <input type="text" placeholder="--Не обязательно" {...register('newPassInput')} />
+                        <button className="SaveBtn" onClick={() => {
+                            setNewPassword(getValues('newPassInput'));
+                            setAllGeneratedPass([...allGeneratedPass, getValues('newPassInput')]);
+                            }}><img src="/image/favBtn.png" alt="Сохранить" />
+                        </button>
+                    </div>               
+                </div>
                 
-                <label htmlFor="">Длинна пароля</label>
-                <input type="text" {...register('passLength', { required: true })} required />
-                
-                <label htmlFor="">Цифры</label>
-                <input type="checkbox" {...register('numbers')} />
+                <div className="PassLen">
+                    <label htmlFor="">Длинна пароля</label>
+                    <input type="text" {...register('passLength', { required: true })} required />
+                    <p>до 20 символов!</p>
+                </div>
 
-                <label htmlFor="">Заглавные буквы</label>
-                <input type="checkbox" {...register('capLetters')} />
-
-                <label htmlFor="">Специальные символы</label>
-                <input type="checkbox" {...register('specSymbols')} />
-
-                <button type="submit">Сгенерировать</button>
-
+                <div className="Other">
+                    <div className="OtherOpt">
+                        <input type="checkbox" {...register('numbers')} />
+                        <label htmlFor="">Цифры</label>
+                    </div>
+                    <div className="OtherOpt">
+                        <input type="checkbox" {...register('capLetters')} />
+                        <label htmlFor="">Заглавные буквы</label>
+                    </div>
+                    <div className="OtherOpt">
+                        <input type="checkbox" {...register('specSymbols')} />
+                        <label htmlFor="">Специальные символы</label>
+                    </div>
+                </div>
             </form>
-
-            <button onClick={() => {
-                setNewPassword(getValues('newPassInput'));
-                setAllGeneratedPass([...allGeneratedPass, getValues('newPassInput')]);
-            }}>Добавить</button>
-
-            <button onClick={() => {
-                setAllGeneratedPass([])
-            }}>Очистить</button>
-
-        </div>
     )
 }

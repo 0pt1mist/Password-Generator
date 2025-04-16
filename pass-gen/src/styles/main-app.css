@@ -20,30 +20,61 @@
 .MainWinTitle{
     display: flex;
     justify-content: center;
-}
-.MainWinTitle p{
     margin: 10px;
+    font-size: 18px;
+    color: #3b3b3b;
 }
 
 .SaveWin{
     width: 300px;
-    height: auto;
+    height: fit-content;
     border-radius: 15px;
     box-shadow: 0px 4px 5px 0px rgba(34, 60, 80, 0.2);
 }
 .SaveWinTitle{
     display: flex;
     justify-content: center;
-}
-.SaveWinTitle p{
     margin: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #3b3b3b;
 }
+.SaveWin li{
+    list-style-type: none;
+}
+.SaveWin li::before{
+    content: "➤";
+    color: #1d75a5;
+    margin-right: 10px;
+}
+.DownloadBtn{
+    position: relative;
+    float: right;
+    right: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 42px;
+    font-size: 15px;
+    background-color: #1d75a5;
+    color: #ffffff;
+    margin: 10px 0 0 0;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 4px 5px 0px rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.05s;
+}
+.DownloadBtn:active{
+    background-color: #11405a !important;
+    transform: scale(0.95);
+}
+
 
 .MainInput{
     display: flex;
     margin: 5px 0 0 0px;
     padding: 0px 0px 0px 40px;
-    width: fit-content;
+    width: 100%;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -74,9 +105,22 @@
     border-radius: 15px;
     box-shadow: 0px 4px 5px 0px rgba(34, 60, 80, 0.2);
     cursor: pointer;
+    transition: transform 0.1s, background-color 0.05s;
 }
-.GenBtn:hover{
-    background-color: #175a7e;
+@media(hover : hover){
+    .GenBtn:hover{
+        background-color: #175a7e;    
+    }
+    .SaveBtn:hover{
+        background-color: #175a7e; 
+    }
+    .DownloadBtn:hover{
+        background-color: #175a7e;
+    }
+}
+.GenBtn:active{
+    background-color: #11405a;
+    transform: scale(0.95);
 }
 .SaveBtn {
     width: 42px;
@@ -86,12 +130,15 @@
     border-radius: 10px;
     box-shadow: 0px 4px 5px 0px rgba(34, 60, 80, 0.2);
     cursor: pointer;
+    transition: transform 0.1s, background-color 0.05s;
 }
-.SaveBtn:hover{
-    background-color: #175a7e;
+.SaveBtn:active{
+    background-color: #11405a;
+    transform: scale(0.95);
 }
+
 .SaveBtn img {
-    padding: 0;
+    padding: 3px 0 0 0;
     margin: 0;
     width: 26px;
     height: 26px;
@@ -101,8 +148,14 @@
 .PassLen {
     display: flex;
     margin: 15px 0px 0px 40px;
+    flex-wrap: wrap;
 }
 
+.PassLen label{
+    font-size: 15px;
+    color: #3b3b3b;
+    margin: 2px 0px 0px 0px;
+}
 .PassLen p{
     font-size: 15px;
     color: #3b3b3b;
@@ -112,7 +165,7 @@
 .PassLen input{
     width: 50px;
     height: 20px;
-    margin: 0px 0px 0px 15px;
+    margin: 0px 15px 0px 15px;
     border: none;
     border-radius: 10px;
     background-color: #f6f6f6;
@@ -122,7 +175,7 @@
 
 .Other{
     display: flex;
-    width: 350px;
+    width: fit-content;
     margin: 30px 40px 30px 40px;
     flex-wrap: wrap;
     gap: 10px;
@@ -175,6 +228,7 @@
 @media(max-width:580px){
     .MainInput{
     justify-content: center;
+    padding: 0;
     }
     .MainInput input{
         width: 70%;
@@ -186,6 +240,9 @@
         width: 90%;
     }
 }
+
+
+
 
 
 
